@@ -43,3 +43,26 @@ fn my_arrays(){
 
 
 }
+
+#[derive(PartialEq, Debug)] // necessary to compare enum values
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+#[test]
+fn new_person_setup() {
+    let light = TrafficLight::Yellow;
+    assert!(light == TrafficLight::Yellow);
+    assert_eq!(light, TrafficLight::Yellow);
+    assert_ne!(light, TrafficLight::Red);
+    assert_ne!(light, TrafficLight::Green);
+}
+
+#[test]
+fn array_mutable(){
+    let mut color = [255, 0, 255];
+    color[0] = 100;
+    assert_eq!(color[0],100);
+
+}
